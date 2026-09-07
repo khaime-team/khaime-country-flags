@@ -65,6 +65,40 @@ import { CountryFlag } from '@khaime-team/country-flags/react';
 <CountryFlag code="NG" as="emoji" />
 ```
 
+## Backend currencies
+
+The package does no fetching. Pass it whatever your HTTP client returned from
+`GET /currencies` and it handles the shape:
+
+```ts
+import { fromApiCurrencies, DEFAULT_CURRENCY_PRIORITY } from '@khaime-team/country-flags';
+
+const currencies = fromApiCurrencies(response.data.data, {
+  priority: DEFAULT_CURRENCY_PRIORITY,
+});
+// [{ code: 'NGN', symbol: '₦', name: 'Nigeria', countryCode: 'NG',
+//    flagCode: 'NG', flagUrl: '/flags/ng.svg', emoji: '🇳🇬' }, ...]
+```
+
+Each app keeps its own client, caching and error handling; this owns only the
+normalisation both were reimplementing. It drops `is_active: false` rows (a
+missing `is_active` counts as active), de-duplicates by currency, uppercases
+codes, and sorts `priority` codes to the front while leaving the rest in the
+API's order.
+
+`country_code` is nullable and this handles it. khaime-custom-sites typed it
+non-null and called `.toLowerCase()` on it unguarded, so a single null row threw
+inside the `.map`, the `catch` swallowed it, and the entire currency list
+collapsed to the four hardcoded `DEFAULT_CURRENCIES`. Here an unresolvable row
+degrades to an empty `flagUrl` and leaves its neighbours alone.
+
+Where the API and this package disagree, each wins the question it is
+authoritative on: the API's `country_code` wins for `countryCode`, because the
+backend decides which country issues a currency; the bloc overrides win for
+`flagCode`, because that is a display question the backend is not answering.
+So a `EUR` row with `country_code: 'DE'` yields `countryCode: 'DE'` and
+`flagCode: 'EU'`.
+
 ## Two things worth knowing
 
 **`code` is the ISO code, `emoji` is the glyph.** The old call sites named the
@@ -101,6 +135,7 @@ maps `EUR → DE` while its navbar maps `EUR → eu`. This package settles it.
 | `currencyFlagEmoji(currency)` | Glyph for a currency's flag |
 | `flagEmoji(code)` | Glyph for an ISO code |
 | `flagUrl(code, opts?)` | SVG URL for an ISO code |
+| `fromApiCurrencies(rows, opts?)` | `GET /currencies` rows, ready to render |
 
 ### Dial codes are shared
 

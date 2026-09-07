@@ -4,7 +4,9 @@ import { flagEmoji, flagUrl } from './flags';
 import type { Country, FlagUrlOptions } from './types';
 
 export { countries, flagEmoji, flagUrl, CURRENCY_TO_COUNTRY, CURRENCY_FLAG_OVERRIDES };
+export { fromApiCurrencies, DEFAULT_CURRENCY_PRIORITY } from './api';
 export type { Country, FlagUrlOptions };
+export type { ApiCurrency, ResolvedCurrency, FromApiOptions } from './api';
 
 const byCode = new Map(countries.map((c) => [c.code, c]));
 
