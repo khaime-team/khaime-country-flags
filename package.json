@@ -1,0 +1,63 @@
+{
+  "name": "@khaime-team/country-flags",
+  "version": "1.0.0",
+  "description": "Shared country, dial-code, currency and flag data for Khaime storefronts. Zero runtime dependencies; flag SVGs bundled.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khaime-team/khaime-country-flags.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "default": "./dist/react/index.js"
+    },
+    "./flags/*": "./flags/*",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "khaime-country-flags": "./bin/cli.js"
+  },
+  "files": [
+    "dist",
+    "flags",
+    "bin"
+  ],
+  "scripts": {
+    "generate": "tsx scripts/generate-countries.mts",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test test/*.test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.3",
+    "i18n-iso-countries": "^7.14.0",
+    "libphonenumber-js": "^1.12.10",
+    "react": "^18.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
