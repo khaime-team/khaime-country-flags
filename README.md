@@ -178,6 +178,25 @@ distributed any more widely than Khaime's own apps. `eu.svg` is the exception:
 it is generated from the published EU specification (12 stars on a circle of
 radius ⅓ the hoist, `#039` field, `#FC0` stars).
 
+## Example
+
+```bash
+npm run example   # bundles examples/ and serves it on http://localhost:5173
+```
+
+A single page exercising the three jobs this package replaces: a country picker
+(`searchCountries` + `withPriority`), a phone input that resolves its own flag
+as you type, and a currency switcher fed from a mock `GET /currencies`.
+
+The mock payload is deliberately awkward, so the panel doubles as a demonstration
+of how `fromApiCurrencies` degrades: `EUR` arrives as `DE` and shows the EU flag,
+`KES` arrives with a null `country_code` and still finds Kenya, `XPF` maps to
+nothing and renders no flag without disturbing its neighbours, and `SEK` is
+inactive and never appears. Flags load from `../flags`, so the page renders the
+same SVGs the package publishes rather than a copy.
+
+The example is not part of the published package.
+
 ## Development
 
 ```bash
