@@ -9,12 +9,13 @@
  */
 export const CURRENCY_TO_COUNTRY: Readonly<Record<string, string>> = Object.freeze({
   AED: 'AE', ARS: 'AR', AUD: 'AU', BDT: 'BD', BRL: 'BR', CAD: 'CA', CHF: 'CH',
-  CLP: 'CL', CNY: 'CN', COP: 'CO', DKK: 'DK', EGP: 'EG', ETB: 'ET', EUR: 'DE',
-  GBP: 'GB', GHS: 'GH', HKD: 'HK', IDR: 'ID', INR: 'IN', JPY: 'JP', KES: 'KE',
-  KRW: 'KR', MAD: 'MA', MXN: 'MX', MYR: 'MY', NGN: 'NG', NOK: 'NO', NZD: 'NZ',
-  PEN: 'PE', PHP: 'PH', PKR: 'PK', PLN: 'PL', RUB: 'RU', RWF: 'RW', SAR: 'SA',
-  SEK: 'SE', SGD: 'SG', THB: 'TH', TRY: 'TR', TZS: 'TZ', UGX: 'UG', USD: 'US',
-  VND: 'VN', XAF: 'CM', XOF: 'SN', ZAR: 'ZA',
+  CLP: 'CL', CNY: 'CN', COP: 'CO', CZK: 'CZ', DKK: 'DK', EGP: 'EG', ETB: 'ET',
+  EUR: 'DE', GBP: 'GB', GHS: 'GH', HKD: 'HK', HUF: 'HU', IDR: 'ID', INR: 'IN',
+  JPY: 'JP', KES: 'KE', KRW: 'KR', MAD: 'MA', MXN: 'MX', MYR: 'MY', NGN: 'NG',
+  NOK: 'NO', NZD: 'NZ', PEN: 'PE', PHP: 'PH', PKR: 'PK', PLN: 'PL', RON: 'RO',
+  RUB: 'RU', RWF: 'RW', SAR: 'SA', SEK: 'SE', SGD: 'SG', THB: 'TH', TRY: 'TR',
+  TZS: 'TZ', UGX: 'UG', USD: 'US', VND: 'VN', XAF: 'CM', XOF: 'SN', ZAR: 'ZA',
+  ZMW: 'ZM',
 });
 
 /**

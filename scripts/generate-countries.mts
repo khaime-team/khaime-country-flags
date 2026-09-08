@@ -51,7 +51,8 @@ const COUNTRY_CURRENCY: Record<string, string> = {
   AO: 'AOA', BW: 'BWP', DZ: 'DZD', MW: 'MWK', MZ: 'MZN', NA: 'NAD', SD: 'SDG',
   TN: 'TND', ZM: 'ZMW',
   // Other frequently seen
-  BD: 'BDT', PE: 'PEN', PK: 'PKR', RU: 'RUB', TR: 'TRY', VN: 'VND',
+  BD: 'BDT', CZ: 'CZK', HU: 'HUF', PE: 'PEN', PK: 'PKR', RO: 'RON',
+  RU: 'RUB', TR: 'TRY', VN: 'VND',
 };
 
 /** Regional-indicator glyph for an alpha-2 code. No lookup table needed. */

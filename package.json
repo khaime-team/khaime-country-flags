@@ -1,6 +1,6 @@
 {
   "name": "@khaime-team/country-flags",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared country, dial-code, currency and flag data for Khaime storefronts. Zero runtime dependencies; flag SVGs bundled.",
   "license": "MIT",
   "repository": {
